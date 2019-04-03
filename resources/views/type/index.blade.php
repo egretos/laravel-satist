@@ -12,8 +12,6 @@
                    href="{{ route('types.create') }}"
                    data-toggle="tooltip"
                    data-placement="left"
-                   title=""
-                   data-_extension-text-contrast=""
                    data-original-title="{{ __('resource.create') }}"
                 ><i class="fa fa-fw fa-plus"></i></a>
             </div>
@@ -33,8 +31,26 @@
                             <td>{{ $type->name }}</td>
                             <td>
                                 <div class="float-right">
-                                    <a class="btn btn-primary btn-sm text-light"><i class="fa fa-fw fa-edit"></i></a>
-                                    <a class="btn btn-danger btn-sm text-light"><i class="fa fa-fw fa-trash"></i></a>
+                                    <a class="btn btn-primary btn-sm text-light"
+                                       data-toggle="tooltip"
+                                       data-placement="top"
+                                       data-original-title="{{ __('resource.edit') }}"
+                                    ><i class="fa fa-fw fa-edit"></i></a>
+                                    <button type="submit"
+                                            class="btn btn-danger btn-sm text-light"
+                                            form="type_{{ $type->id }}_delete_form"
+                                            data-toggle="tooltip"
+                                            data-placement="top"
+                                            data-original-title="{{ __('resource.delete') }}"
+                                    ><i class="fa fa-fw fa-trash"></i></button>
+                                    <form
+                                            action="{{ route('types.destroy', ['id' => $type->id]) }}"
+                                            id="type_{{ $type->id }}_delete_form"
+                                            method="POST"
+                                    >
+                                        {{ method_field('DELETE') }}
+                                        {{ csrf_field() }}
+                                    </form>
                                 </div>
                             </td>
                         </tr>
