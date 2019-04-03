@@ -1,3 +1,5 @@
+.phpstorm.meta.php
+_ide_helper.php
 /.idea
 /node_modules
 /public/hot
