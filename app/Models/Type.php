@@ -20,7 +20,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @method static bool|null forceDelete()
  * @method static \Illuminate\Database\Query\Builder|Type onlyTrashed()
- * @method static bool|null restore()
  * @method static \Illuminate\Database\Eloquent\Builder|Type whereDeletedAt($value)
  * @method static \Illuminate\Database\Query\Builder|Type withTrashed()
  * @method static \Illuminate\Database\Query\Builder|Type withoutTrashed()
@@ -31,7 +30,7 @@ class Type extends Model
 
     protected $table = 'types';
 
-    protected $fillable = ['name'];
+    protected $fillable = ['id', 'name'];
 
     public $timestamps = false;
 

@@ -8,5 +8,4 @@ class FlashHelper
     const ERROR = 'error';
     const INFO = 'info';
     const WARNING = 'warning';
-
 }

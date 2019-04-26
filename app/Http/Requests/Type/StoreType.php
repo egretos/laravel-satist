@@ -9,6 +9,7 @@ class StoreType extends FormRequest
     public function rules()
     {
         return [
+            'id' => 'nullable|integer|exists',
             'name' => 'required|string|min:3|max:72',
         ];
     }

@@ -1,0 +1,1 @@
+{{ $entity }}@lang('resource.deleted'). <a href="{{ $route }}">@lang('resource.restore')?</a>
