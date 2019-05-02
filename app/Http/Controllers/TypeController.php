@@ -29,13 +29,17 @@ class TypeController extends Controller
         return view('type.create');
     }
 
+    public function update()
+    {
+        return view('type.update');
+    }
+
     public function store(StoreType $request)
     {
         if ($this->service->store($request->all())) {
             \Session::flash(FlashHelper::SUCCESS, __('type.type').' '.__('resource.created'));
             return redirect()->route('types.index');
         }
-
         \Session::flash(FlashHelper::ERROR, __('resource.saving').' '.__('errors.finished with errors'));
 
         return redirect()
