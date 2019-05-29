@@ -1,4 +1,8 @@
-@php /** @var \App\Models\Type[] $types */ @endphp
+<?php
+/**
+ * @var \App\Models\Entity[] $models
+ */
+?>
 
 @extends('layouts.app')
 
@@ -9,7 +13,7 @@
             <div class="card-header bg-dark text-light d-flex justify-content-between align-items-center">
                 <div>{{ __('type.types') }}</div>
                 <a class="btn btn-success btn-sm"
-                   href="{{ route('types.create') }}"
+                   href="{{ route('entities.create') }}"
                    data-toggle="tooltip"
                    data-placement="left"
                    data-original-title="{{ __('resource.create') }}"
@@ -25,27 +29,28 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($types as $type)
+                    @foreach($models as $model)
                         <tr>
-                            <th scope="row">{{ $type->id }}</th>
-                            <td>{{ $type->name }}</td>
+                            <th scope="row">{{ $model->id }}</th>
+                            <td>{{ $model->name }}</td>
                             <td>
                                 <div class="float-right">
                                     <a class="btn btn-primary btn-sm text-light"
                                        data-toggle="tooltip"
                                        data-placement="top"
                                        data-original-title="{{ __('resource.edit') }}"
+                                       href="{{ route('entities.edit', ['id' => $model->id]) }}"
                                     ><i class="fa fa-fw fa-edit"></i></a>
                                     <button type="submit"
                                             class="btn btn-danger btn-sm text-light"
-                                            form="type_{{ $type->id }}_delete_form"
+                                            form="type_{{ $model->id }}_delete_form"
                                             data-toggle="tooltip"
                                             data-placement="top"
                                             data-original-title="{{ __('resource.delete') }}"
                                     ><i class="fa fa-fw fa-trash"></i></button>
                                     <form
-                                            action="{{ route('types.destroy', ['id' => $type->id]) }}"
-                                            id="type_{{ $type->id }}_delete_form"
+                                            action="{{ route('entities.destroy', ['id' => $model->id]) }}"
+                                            id="type_{{ $model->id }}_delete_form"
                                             method="POST"
                                     >
                                         {{ method_field('DELETE') }}

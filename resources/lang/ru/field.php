@@ -1,6 +1,8 @@
 <?php
 return [
-    'fields' => 'Поля',
-    'name' => 'Имя',
-    'name_alt' => 'Название',
+    'fields' => 'поля',
+    'field' => 'поле',
+    'name' => 'имя',
+    'display name' => 'показательное имя',
+    'name_alt' => 'название',
 ];

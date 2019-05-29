@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddSoftdeletesToTypesTable extends Migration
+class CreateEntitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,10 @@ class AddSoftdeletesToTypesTable extends Migration
      */
     public function up()
     {
-        Schema::table('types', function (Blueprint $table) {
+        Schema::create('entities', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('display_name');
             $table->softDeletes();
         });
     }
@@ -25,8 +28,6 @@ class AddSoftdeletesToTypesTable extends Migration
      */
     public function down()
     {
-        Schema::table('types', function (Blueprint $table) {
-            $table->dropSoftDeletes();
-        });
+        Schema::dropIfExists('entities');
     }
 }

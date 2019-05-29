@@ -7,9 +7,9 @@
         </li>
     </ul>
     <ul class="list-unstyled">
-        <li @if(Request::routeIs('types.index')) class="active" @endif>
-            <a href="{{ route('types.index') }}">
-                <i class="fa fa-fw fa-list"></i> {{ __('type.types') }}
+        <li @if(Request::routeIs('entities.index')) class="active" @endif>
+            <a href="{{ route('entities.index') }}">
+                <i class="fa fa-fw fa-list"></i> {{ __('entity.entity') }}
             </a>
         </li>
     </ul>

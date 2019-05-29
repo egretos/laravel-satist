@@ -2,15 +2,10 @@
 
 namespace App\Services;
 
-use App\Models\Type;
+use App\Models\Entity;
 
-class TypeService
+class EntityService
 {
-    public function all()
-    {
-        return Type::all();
-    }
-
     /**
      * @param $data
      * @return bool
@@ -18,7 +13,7 @@ class TypeService
     public function store($data)
     {
         try {
-            return (new Type($data))->save();
+            return (new Entity($data))->save();
         } catch (\Exception $exception) {
             \Log::error($exception);
             return false;
@@ -28,7 +23,7 @@ class TypeService
 
     public function delete($id)
     {
-        $type = Type::findOrFail($id);
+        $type = Entity::findOrFail($id);
 
         try {
             return $type->delete();
@@ -40,7 +35,7 @@ class TypeService
 
     public function restore($id)
     {
-        $type = Type::withTrashed()->findOrFail($id);
+        $type = Entity::withTrashed()->findOrFail($id);
         return $type->restore();
     }
 }

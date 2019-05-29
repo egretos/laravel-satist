@@ -16,7 +16,9 @@ class CreateFieldsTable extends Migration
         Schema::create('fields', function (Blueprint $table) {
             $table->bigIncrements('id')->unique();
             $table->string('name');
+            $table->string('display_name');
             $table->bigInteger('type_id')->unsigned();
+            $table->bigInteger('entity_id')->unsigned();
         });
     }
 
