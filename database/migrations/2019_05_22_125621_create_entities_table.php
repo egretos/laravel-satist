@@ -19,6 +19,20 @@ class CreateEntitiesTable extends Migration
             $table->string('display_name');
             $table->softDeletes();
         });
+
+        if (Schema::hasTable('fields')) {
+            Schema::table('fields', function (Blueprint $table) {
+                $table->unsignedBigInteger('entity_id')->change();
+
+            });
+            Schema::table('fields', function (Blueprint $table) {
+                $table->foreign('entity_id')
+                    ->references('id')
+                    ->on('entities')
+                    ->onDelete('cascade');
+            });
+        }
+
     }
 
     /**
@@ -28,6 +42,10 @@ class CreateEntitiesTable extends Migration
      */
     public function down()
     {
+        Schema::table('fields', function (Blueprint $table) {
+            $table->dropForeign('fields_entity_id_foreign');
+        });
+
         Schema::dropIfExists('entities');
     }
 }

@@ -20,7 +20,6 @@ class EntityService
         }
     }
 
-
     public function delete($id)
     {
         $type = Entity::findOrFail($id);

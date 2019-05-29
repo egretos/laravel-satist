@@ -9,7 +9,7 @@
     <ul class="list-unstyled">
         <li @if(Request::routeIs('entities.index')) class="active" @endif>
             <a href="{{ route('entities.index') }}">
-                <i class="fa fa-fw fa-list"></i> {{ __('entity.entity') }}
+                <i class="fa fa-fw fa-list"></i> {{ __('entity.Entities') }}
             </a>
         </li>
     </ul>
